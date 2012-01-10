@@ -2,16 +2,15 @@
 //  AppDelegate.m
 //  CapOneSegMac
 //
-//  Created by 伊藤 祐輔 on 12/01/09.
-//  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
+//  Created by Yusuke Ito on 12/01/09.
+//  Copyright (c) 2012 Yusuke Ito.
+//  http://www.opensource.org/licenses/MIT
 //
 
 #import "AppDelegate.h"
 #import "LTIOUSBManager.h"
 #import "CapUSBDevice.h"
 #import "DummyObj.h"
-
-#define UOT100_PACKET_SIZE	197
 
 @implementation AppDelegate
 @synthesize channelField = _channelField;
@@ -27,9 +26,9 @@
     
     [[LTIOUSBManager sharedInstance] startWithMatchingDictionaries:dicts];
     
-    [NSThread detachNewThreadSelector:@selector(_anotherThread:) toTarget:self withObject:nil];
+    //[NSThread detachNewThreadSelector:@selector(_anotherThread:) toTarget:self withObject:nil];
     
-    NSLog(@"%s, runloop %@", __func__, CFRunLoopGetCurrent());
+    //NSLog(@"%s, runloop %@", __func__, CFRunLoopGetCurrent());
 }
 
 
@@ -65,11 +64,6 @@
     
 }
 
-- (void)_anotherThread:(id)obj
-{
-    NSLog(@"%s, runloop %@", __func__, CFRunLoopGetCurrent());
-}
-
 - (IBAction)setChannel:(id)sender
 {
     CapUSBDevice* device = [LTIOUSBManager sharedInstance].devices.lastObject;
@@ -80,4 +74,12 @@
     
     [device setChannel:self.channelField.intValue];
 }
+
+#pragma mark -
+
+- (void)_anotherThread:(id)obj
+{
+    NSLog(@"%s, runloop %@", __func__, CFRunLoopGetCurrent());
+}
+
 @end

@@ -112,9 +112,9 @@
 		52D7075314BACE120085C1FA /* CapOneSegMac */ = {
 			isa = PBXGroup;
 			children = (
+				5250705614BB46810076E377 /* initdata.h */,
 				5250704C14BB36870076E377 /* DummyObj.h */,
 				5250704D14BB36870076E377 /* DummyObj.m */,
-				5250705614BB46810076E377 /* initdata.h */,
 				5250703214BB104D0076E377 /* CapUSBDevice.h */,
 				5250703314BB104D0076E377 /* CapUSBDevice.m */,
 				52D7075F14BACE130085C1FA /* AppDelegate.h */,
