@@ -1,0 +1,335 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5250703014BB0FD50076E377 /* LTIOUSBDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 5250702D14BB0FD50076E377 /* LTIOUSBDevice.m */; };
+		5250703114BB0FD50076E377 /* LTIOUSBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5250702F14BB0FD50076E377 /* LTIOUSBManager.m */; };
+		5250703414BB104D0076E377 /* CapUSBDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 5250703314BB104D0076E377 /* CapUSBDevice.m */; };
+		5250703A14BB17330076E377 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5250703914BB17330076E377 /* IOKit.framework */; };
+		5250704E14BB36870076E377 /* DummyObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 5250704D14BB36870076E377 /* DummyObj.m */; };
+		52D7074E14BACE120085C1FA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D7074D14BACE120085C1FA /* Cocoa.framework */; };
+		52D7075814BACE130085C1FA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52D7075614BACE130085C1FA /* InfoPlist.strings */; };
+		52D7075A14BACE130085C1FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D7075914BACE130085C1FA /* main.m */; };
+		52D7075E14BACE130085C1FA /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 52D7075C14BACE130085C1FA /* Credits.rtf */; };
+		52D7076114BACE130085C1FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D7076014BACE130085C1FA /* AppDelegate.m */; };
+		52D7076414BACE140085C1FA /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D7076214BACE140085C1FA /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5250702C14BB0FD50076E377 /* LTIOUSBDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTIOUSBDevice.h; sourceTree = "<group>"; };
+		5250702D14BB0FD50076E377 /* LTIOUSBDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTIOUSBDevice.m; sourceTree = "<group>"; };
+		5250702E14BB0FD50076E377 /* LTIOUSBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTIOUSBManager.h; sourceTree = "<group>"; };
+		5250702F14BB0FD50076E377 /* LTIOUSBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTIOUSBManager.m; sourceTree = "<group>"; };
+		5250703214BB104D0076E377 /* CapUSBDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CapUSBDevice.h; sourceTree = "<group>"; };
+		5250703314BB104D0076E377 /* CapUSBDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CapUSBDevice.m; sourceTree = "<group>"; };
+		5250703914BB17330076E377 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		5250704C14BB36870076E377 /* DummyObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyObj.h; sourceTree = "<group>"; };
+		5250704D14BB36870076E377 /* DummyObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyObj.m; sourceTree = "<group>"; };
+		5250705614BB46810076E377 /* initdata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = initdata.h; sourceTree = "<group>"; };
+		52D7074914BACE120085C1FA /* CapOneSegMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapOneSegMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		52D7074D14BACE120085C1FA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		52D7075014BACE120085C1FA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		52D7075114BACE120085C1FA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		52D7075214BACE120085C1FA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		52D7075514BACE130085C1FA /* CapOneSegMac-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CapOneSegMac-Info.plist"; sourceTree = "<group>"; };
+		52D7075714BACE130085C1FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		52D7075914BACE130085C1FA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		52D7075B14BACE130085C1FA /* CapOneSegMac-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CapOneSegMac-Prefix.pch"; sourceTree = "<group>"; };
+		52D7075D14BACE130085C1FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		52D7075F14BACE130085C1FA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		52D7076014BACE130085C1FA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		52D7076314BACE140085C1FA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		52D7074614BACE120085C1FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5250703A14BB17330076E377 /* IOKit.framework in Frameworks */,
+				52D7074E14BACE120085C1FA /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5250702B14BB0FD50076E377 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				5250702C14BB0FD50076E377 /* LTIOUSBDevice.h */,
+				5250702D14BB0FD50076E377 /* LTIOUSBDevice.m */,
+				5250702E14BB0FD50076E377 /* LTIOUSBManager.h */,
+				5250702F14BB0FD50076E377 /* LTIOUSBManager.m */,
+			);
+			name = Library;
+			path = ../LTIOUSB/Library;
+			sourceTree = "<group>";
+		};
+		52D7073E14BACE120085C1FA = {
+			isa = PBXGroup;
+			children = (
+				5250703914BB17330076E377 /* IOKit.framework */,
+				5250702B14BB0FD50076E377 /* Library */,
+				52D7075314BACE120085C1FA /* CapOneSegMac */,
+				52D7074C14BACE120085C1FA /* Frameworks */,
+				52D7074A14BACE120085C1FA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		52D7074A14BACE120085C1FA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				52D7074914BACE120085C1FA /* CapOneSegMac.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		52D7074C14BACE120085C1FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52D7074D14BACE120085C1FA /* Cocoa.framework */,
+				52D7074F14BACE120085C1FA /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		52D7074F14BACE120085C1FA /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52D7075014BACE120085C1FA /* AppKit.framework */,
+				52D7075114BACE120085C1FA /* CoreData.framework */,
+				52D7075214BACE120085C1FA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		52D7075314BACE120085C1FA /* CapOneSegMac */ = {
+			isa = PBXGroup;
+			children = (
+				5250704C14BB36870076E377 /* DummyObj.h */,
+				5250704D14BB36870076E377 /* DummyObj.m */,
+				5250705614BB46810076E377 /* initdata.h */,
+				5250703214BB104D0076E377 /* CapUSBDevice.h */,
+				5250703314BB104D0076E377 /* CapUSBDevice.m */,
+				52D7075F14BACE130085C1FA /* AppDelegate.h */,
+				52D7076014BACE130085C1FA /* AppDelegate.m */,
+				52D7076214BACE140085C1FA /* MainMenu.xib */,
+				52D7075414BACE130085C1FA /* Supporting Files */,
+			);
+			path = CapOneSegMac;
+			sourceTree = "<group>";
+		};
+		52D7075414BACE130085C1FA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				52D7075514BACE130085C1FA /* CapOneSegMac-Info.plist */,
+				52D7075614BACE130085C1FA /* InfoPlist.strings */,
+				52D7075914BACE130085C1FA /* main.m */,
+				52D7075B14BACE130085C1FA /* CapOneSegMac-Prefix.pch */,
+				52D7075C14BACE130085C1FA /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		52D7074814BACE120085C1FA /* CapOneSegMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52D7076714BACE140085C1FA /* Build configuration list for PBXNativeTarget "CapOneSegMac" */;
+			buildPhases = (
+				52D7074514BACE120085C1FA /* Sources */,
+				52D7074614BACE120085C1FA /* Frameworks */,
+				52D7074714BACE120085C1FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CapOneSegMac;
+			productName = CapOneSegMac;
+			productReference = 52D7074914BACE120085C1FA /* CapOneSegMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52D7074014BACE120085C1FA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 52D7074314BACE120085C1FA /* Build configuration list for PBXProject "CapOneSegMac" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 52D7073E14BACE120085C1FA;
+			productRefGroup = 52D7074A14BACE120085C1FA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				52D7074814BACE120085C1FA /* CapOneSegMac */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		52D7074714BACE120085C1FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52D7075814BACE130085C1FA /* InfoPlist.strings in Resources */,
+				52D7075E14BACE130085C1FA /* Credits.rtf in Resources */,
+				52D7076414BACE140085C1FA /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		52D7074514BACE120085C1FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52D7075A14BACE130085C1FA /* main.m in Sources */,
+				52D7076114BACE130085C1FA /* AppDelegate.m in Sources */,
+				5250703014BB0FD50076E377 /* LTIOUSBDevice.m in Sources */,
+				5250703114BB0FD50076E377 /* LTIOUSBManager.m in Sources */,
+				5250703414BB104D0076E377 /* CapUSBDevice.m in Sources */,
+				5250704E14BB36870076E377 /* DummyObj.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		52D7075614BACE130085C1FA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52D7075714BACE130085C1FA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		52D7075C14BACE130085C1FA /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52D7075D14BACE130085C1FA /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		52D7076214BACE140085C1FA /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52D7076314BACE140085C1FA /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		52D7076514BACE140085C1FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		52D7076614BACE140085C1FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		52D7076814BACE140085C1FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CapOneSegMac/CapOneSegMac-Prefix.pch";
+				INFOPLIST_FILE = "CapOneSegMac/CapOneSegMac-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		52D7076914BACE140085C1FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CapOneSegMac/CapOneSegMac-Prefix.pch";
+				INFOPLIST_FILE = "CapOneSegMac/CapOneSegMac-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		52D7074314BACE120085C1FA /* Build configuration list for PBXProject "CapOneSegMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52D7076514BACE140085C1FA /* Debug */,
+				52D7076614BACE140085C1FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52D7076714BACE140085C1FA /* Build configuration list for PBXNativeTarget "CapOneSegMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52D7076814BACE140085C1FA /* Debug */,
+				52D7076914BACE140085C1FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 52D7074014BACE120085C1FA /* Project object */;
+}
