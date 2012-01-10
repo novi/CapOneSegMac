@@ -8,16 +8,22 @@
 
 #import <Foundation/Foundation.h>
 #import "LTIOUSBDevice.h"
-#import "DummyObj.h"
+
+@class CapUSBDevice;
+
+typedef void (^CapUSBDeviceDataReceiveCallback)(CapUSBDevice* device,  NSData* data);
 
 @interface CapUSBDevice : LTIOUSBDevice
 
+@property (nonatomic, readonly, getter = isDeviceInitialized) BOOL deviceInitialized;
+@property (nonatomic, readonly, getter = isStop) BOOL stop;
+@property (nonatomic, copy) CapUSBDeviceDataReceiveCallback callback;
 
-- (void)setChannel:(int)ch;
+- (BOOL)setChannel:(int)ch;
 
-- (void)startInitDevice;
-- (void)stop;
+- (BOOL)initDevice;
+- (void)stopCapture;
 
-- (void)_readDataWithDevice:(CapUSBDevice*)device dummyObj:(DummyObj*)dummyObj;
+- (BOOL)startCapture:(id)sender;
 
 @end

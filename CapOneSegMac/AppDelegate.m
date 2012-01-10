@@ -14,6 +14,7 @@
 #define UOT100_PACKET_SIZE	197
 
 @implementation AppDelegate
+@synthesize channelField = _channelField;
 
 @synthesize window = _window;
 
@@ -36,22 +37,32 @@
 - (IBAction)readPipeTest:(id)sender
 {
     DummyObj* obj = [[DummyObj alloc] init];
-    
-    
-    
+   
     CapUSBDevice* device = [LTIOUSBManager sharedInstance].devices.lastObject;
-    [device _readDataWithDevice:device dummyObj:obj];
+    [device startCapture:obj];
     
 }
 
 - (IBAction)stop:(id)sender {
     CapUSBDevice* device = [LTIOUSBManager sharedInstance].devices.lastObject;
-    [device stop];
+    [device stopCapture];
 }
 
 - (IBAction)initDevice:(id)sender {
     CapUSBDevice* device = [LTIOUSBManager sharedInstance].devices.lastObject;
-    [device startInitDevice];
+    
+    DummyObj* obj = [[DummyObj alloc] initWithCName:__func__];
+    
+    device.callback = ^(CapUSBDevice* dev, NSData* data) {
+        const UInt8* buf = data.bytes;
+        NSLog(@"recv: %lu bytes, %p, %@", data.length, obj, buf[1] & 0x80 ? @"Invalid" : @"");  
+    };
+    
+    if (![device initDevice]) {
+        NSLog(@"device initialized failure");
+    } 
+    
+    
 }
 
 - (void)_anotherThread:(id)obj
@@ -59,4 +70,14 @@
     NSLog(@"%s, runloop %@", __func__, CFRunLoopGetCurrent());
 }
 
+- (IBAction)setChannel:(id)sender
+{
+    CapUSBDevice* device = [LTIOUSBManager sharedInstance].devices.lastObject;
+    if ( ! device.isDeviceInitialized) {
+        NSLog(@"device not initialized, now init...");
+        [self initDevice:nil];
+    }
+    
+    [device setChannel:self.channelField.intValue];
+}
 @end

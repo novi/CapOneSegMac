@@ -14,5 +14,7 @@
 - (IBAction)readPipeTest:(id)sender;
 - (IBAction)stop:(id)sender;
 - (IBAction)initDevice:(id)sender;
+@property (weak) IBOutlet NSTextField *channelField;
+- (IBAction)setChannel:(id)sender;
 
 @end

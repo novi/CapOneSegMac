@@ -8,11 +8,26 @@
 
 #import "DummyObj.h"
 
+@interface DummyObj()
+{
+    NSString* _name;
+}
+@end
+
 @implementation DummyObj
+
+- (id)initWithCName:(const char *)ptr
+{
+    self = [super init];
+    if (self) {
+        _name = [NSString stringWithUTF8String:ptr];
+    }
+    return self;
+}
 
 -(void)dealloc
 {
-    NSLog(@"%s", __func__);
+    NSLog(@"%s, %@", __func__, _name);
 }
 
 @end

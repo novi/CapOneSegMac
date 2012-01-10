@@ -27,7 +27,7 @@ void cap_msleep(int ms)
 
 {
     int _channel;
-    BOOL _stop;
+    BOOL _capStop;
 }
 
 - (void) _sendInitData;
@@ -39,11 +39,20 @@ void cap_msleep(int ms)
 
 @implementation CapUSBDevice
 
-- (void)setChannel:(int)ch
+@synthesize deviceInitialized = _deviceInitialized;
+@synthesize stop = _capStop;
+@synthesize callback;
+
+- (BOOL)setChannel:(int)ch
 {
-	_channel = ch;
-	[self _sendInitData];
-    [self _sendStartStop:YES]; // Start
+	if (ch >= 0 && ch < 100) {
+        _channel = ch;
+        NSLog(@"setting channel to %d", ch);
+        [self _sendInitData];
+        [self _sendStartStop:YES]; // Start
+        return YES;
+    }
+    return NO;
 }
 
 #pragma mark -
@@ -161,12 +170,7 @@ void cap_msleep(int ms)
 	return YES;
 }
 
-/*
- static int cap_send5data(unsigned char *p)
- {
- return cap_send5data_wait(p, 1);
- }
- */
+
 
 - (BOOL)_sendControlRequest:(UInt8)request val:(UInt8)value
 {
@@ -191,41 +195,69 @@ void cap_msleep(int ms)
     return YES;
 }
 
-#pragma mark -
+#pragma mark - Capturing
 
-- (void)_readDataWithDevice:(CapUSBDevice*)device dummyObj:(DummyObj*)dummyObj
+- (BOOL)_readCaptureData:(id)sender
 {
-    
-    if ([self readFromPipeAsync:0x2 callback:^(NSData *data) {
-        UInt8* buf = data.bytes;
+    if ([self readFromPipeAsync:BULKENDP callback:^(NSData *data) {
+        const UInt8* buf = data.bytes;
         if (buf) {
-            NSLog(@"data recv: %lu, %@, 0x%02x, 0x%02x, 0x%02x, 0x%02x, %p", data.length, buf[1] & 0x80 ? @"Invalid" : @"OK", buf[0], buf[1], buf[2], buf[3], dummyObj);
+            //NSLog(@"data recv: %lu, %@, 0x%02x, 0x%02x, 0x%02x, 0x%02x, %p", data.length, buf[1] & 0x80 ? @"Invalid" : @"OK", buf[0], buf[1], buf[2], buf[3], sender);
+            if (callback && buf[0] == 0x47) {
+                callback(self, data);
+            }
         } else {
-            NSLog(@"zero data");
+            NSLog(@"nil data");
         }
         
-        if (!_stop && self.isConnected /*&& data*/) {
-            [self _readDataWithDevice:nil dummyObj:dummyObj];
+        if (!_capStop && data ) {
+            [self _readCaptureData:sender];
         }
         
     } maxPacketSize:UOT100_PACKET_SIZE
-                    noDataTimeout:200
-                completionTimeout:200]) {
-        
-        //NSLog(@"%s", __func__);
-        
+                  noDataTimeout:RECV_TIMEOUT
+              completionTimeout:RECV_TIMEOUT]) {
+        // success
+        return YES;
         
     }
+    
+    return NO;
 }
 
--(void)stop
+-(BOOL)startCapture:(id)sender
 {
-    _stop = YES;
+    if ( ! _deviceInitialized) {
+        return NO;
+    }
+    
+    if (! _capStop) {
+        return YES; // already started
+    }
+    
+    _capStop = NO;
+    
+    if ([self _readCaptureData:sender]) {
+        return YES;
+    }
+    
+    return NO;
 }
 
--(void)startInitDevice
+-(void)stopCapture
 {
-    [self closeInterfaceInterface];
+    _capStop = YES;
+}
+
+-(BOOL)initDevice;
+{
+    if ( ! _capStop) {
+        return NO;
+    }
+    
+    _deviceInitialized = NO;
+    
+    [self destroyInterfaceInterface];
     //[self closeDeviceInterface];
     
     if ([self openDevice]) {
@@ -235,6 +267,7 @@ void cap_msleep(int ms)
             if ([self openInterface] && [self addAsyncRunloopSourceToRunloop:CFRunLoopGetMain()]) {
                 NSLog(@"Interface opened: %p", self.interfaceInterface);
                 
+                /*
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
                     cap_msleep(100);
                     dispatch_async(dispatch_get_main_queue(), ^{
@@ -243,21 +276,29 @@ void cap_msleep(int ms)
                         _stop = NO;
                     });
                 });
+                 
+                */
                 
+                _deviceInitialized = YES;
+                
+                return YES;
             }
             
         }
     }
     
-    
+    return NO;
 }
 
 
-#pragma mark - 
+#pragma mark -
 
 -(void)deviceConnected
 {
-    _channel = 27;
+    if (_channel == 0) {
+        _channel = 18;
+    }
+    _capStop = YES;
     
     if ([self createPluginInterface]) {
         NSLog(@"createPluginInterface");
@@ -270,8 +311,7 @@ void cap_msleep(int ms)
 
 -(void)deviceDisconnected
 {
-    _stop = YES;
-    
+    _capStop = YES;
 }
 
 +(BOOL)removeFromDeviceListOnDisconnect

@@ -10,4 +10,7 @@
 
 @interface DummyObj : NSObject
 
+- (id)initWithName:(NSString*)string;
+- (id)initWithCName:(const char*)ptr;
+
 @end
